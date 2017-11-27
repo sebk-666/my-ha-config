@@ -1,0 +1,106 @@
+alias: 'Heizungseinstellung Abend'
+hide_entity: 'True'
+trigger:
+  - platform: time
+    hours: 16
+    minutes: 00
+    seconds: 00
+  - platform: state
+    entity_id: input_number.heating_livingroom_evening
+  - platform: state
+    entity_id: input_number.heating_bedroom_evening
+  - platform: state
+    entity_id: input_number.heating_office_evening
+  - platform: state
+    entity_id: input_number.heating_bathroom_evening
+  - platform: state
+    entity_id: input_number.heating_kitchen_evening
+  - platform: state
+    entity_id: input_boolean.venting
+    to: 'off'
+  - platform: state
+    entity_id: input_select.housemode
+    to: 'Abend'
+  - platform: state
+    entity_id: sensor.bedroom_window
+    to: 'Closed'
+condition:
+# To activate, the following conditions must all be true:
+#  - it must be the right time frame
+#  - venting mode must be off
+#  - house mode must be either "auto" or "Abend"
+  - condition: and
+    conditions:
+      - condition: or
+        conditions:
+          - condition: template
+            value_template: '{{ 16 <= now().hour < 21 }}'
+            # this is to provide an alternative to the OR clause
+            # otherwise matching the specified time would be mandatory
+          - condition: state
+            entity_id: input_select.housemode
+            state: 'Abend'
+      # don't switch modes while ventingmode is 'on'
+      - condition: state
+        entity_id: input_boolean.venting
+        state: 'off'
+      - condition: or
+        conditions:
+          - condition: state
+            entity_id: input_select.housemode
+            state: 'Abend'
+          - condition: state
+            entity_id: input_select.housemode
+            state: 'auto'
+action:
+  - service: climate.set_temperature
+    data_template:
+      entity_id: climate.danfoss_kitchen_heating_1
+      temperature: '{{ states.input_number.heating_kitchen_evening.state }}'
+  - service: climate.set_temperature
+    data_template:
+      entity_id: climate.danfoss_bathroom_heating_1
+      temperature: '{{ states.input_number.heating_bathroom_evening.state }}'
+  - service: climate.set_temperature
+    data_template:
+      entity_id: climate.danfoss_livingroom_heating_1
+      temperature: '{{ states.input_number.heating_livingroom_evening.state | int }}'
+  - service: climate.set_temperature
+    data_template:
+      entity_id: climate.danfoss_bedroom_heating_1
+      temperature: '{{ states.input_number.heating_bedroom_evening.state | int }}'
+  - service: climate.set_temperature
+    data_template:
+      entity_id: climate.danfoss_office_heating_1
+      temperature: '{{ states.input_number.heating_office_evening.state | int }}'
+  - service: input_number.set_value
+    data_template:
+      entity_id: input_number.heating_bathroom
+      value: '{{ states.input_number.heating_bathroom_evening.state }}'
+  - service: input_number.set_value
+    data_template:
+      entity_id: input_number.heating_kitchen
+      value: '{{ states.input_number.heating_kitchen_evening.state }}'
+  - service: input_number.set_value
+    data_template:
+      entity_id: input_number.heating_livingroom
+      value: '{{ states.input_number.heating_livingroom_evening.state }}'
+  - service: input_number.set_value
+    data_template:
+      entity_id: input_number.heating_bedroom
+      value: '{{ states.input_number.heating_bedroom_evening.state }}'
+  - service: input_number.set_value
+    data_template:
+      entity_id: input_number.heating_office
+      value: '{{ states.input_number.heating_office_evening.state }}'
+  - condition: and
+    conditions:
+      - condition: template
+        value_template: '{{ trigger.platform == "time" }}'
+      - condition: state
+        entity_id: input_select.housemode
+        state: 'Abend'
+  - service: input_select.select_option
+    data:
+      entity_id: input_select.housemode
+      option: 'auto'

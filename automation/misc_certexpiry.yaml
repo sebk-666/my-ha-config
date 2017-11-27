@@ -1,0 +1,10 @@
+alias: SSL Certificate Expiration Alert
+trigger:
+  - platform: numeric_state
+    entity_id: sensor.ssl_certificate_expiry
+    below: 5
+action:
+  service: notify.ios_iphone6s
+  data_template:
+    message: 'Dantana SSL cert expires in {{ states.sensor.ssl_certificate_expiry.state }} days.'
+    title: 'SSL Certificate Expiration'

@@ -1,0 +1,4 @@
+name: 'OpenZWave Status'
+entities:
+  - binary_sensor.openzwave_error
+

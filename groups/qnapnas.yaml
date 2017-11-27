@@ -1,0 +1,7 @@
+name: 'QNAP TS-253A'
+entities:
+  - sensor.qnap_status
+  - sensor.qnap_smart_status_drive_01
+  - sensor.qnap_temperature_drive_01
+  - sensor.qnap_smart_status_drive_02
+  - sensor.qnap_temperature_drive_02

@@ -1,0 +1,11 @@
+platform: template
+sensors: 
+  thermostat_check_kitchen:
+    value_template: '{{ states.climate.danfoss_kitchen_heating_1.attributes.temperature | int != states.input_number.heating_kitchen.state | int }}'
+    friendly_name: 'Küche'
+    #device_class: None
+    delay_on:
+      minutes: 15
+    entity_id: 
+      - climate.danfoss_kitchen_heating_1
+      - input_number.heating_kitchen

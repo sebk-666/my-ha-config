@@ -1,0 +1,6 @@
+name: 'Arbeitszimmer'
+entities:
+  - input_number.heating_office_day
+  - input_number.heating_office_evening
+  - input_number.heating_office_night
+

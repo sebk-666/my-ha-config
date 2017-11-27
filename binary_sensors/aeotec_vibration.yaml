@@ -1,0 +1,7 @@
+platform: template
+sensors: 
+  aeotec_vibration:
+    value_template: '{{ states.sensor.aeotec_ms6_kitchen_burglar.state == "3" }}'
+    friendly_name: 'AMS6 Vibration'
+    entity_id: sensor.aeotec_ms6_kitchen_burglar0
+    device_class: 'vibration'

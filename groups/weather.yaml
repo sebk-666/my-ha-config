@@ -1,0 +1,5 @@
+name: Wetter
+entities:
+#  - group.yrweather
+icon: mdi:weather-cloudy
+view: yes

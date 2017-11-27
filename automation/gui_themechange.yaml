@@ -1,0 +1,9 @@
+alias: 'Theme Change'
+hide_entity: true
+trigger:
+  platform: state
+  entity_id: input_select.theme
+action:
+  - service: frontend.set_theme
+    data_template:
+      name: '{{ states.input_select.theme.state }}'

@@ -1,0 +1,4 @@
+platform: yweather
+woeid: 645458
+monitored_conditions:
+  - temperature

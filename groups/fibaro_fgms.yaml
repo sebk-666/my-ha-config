@@ -1,0 +1,11 @@
+name: 'WZ: Fibaro FGMS-001'
+entities:
+  - binary_sensor.fibaro_fgms_livingroom_sensor
+  - sensor.fibaro_fgms_livingroom_alarm_level
+  - sensor.fibaro_fgms_livingroom_alarm_type
+  - sensor.fibaro_fgms_livingroom_burglar
+  - sensor.fibaro_fgms_livingroom_general
+  - sensor.fibaro_fgms_livingroom_luminance
+  - sensor.fibaro_fgms_livingroom_seismic_intensity
+  - sensor.fibaro_fgms_livingroom_sourcenodeid
+  - sensor.fibaro_fgms_livingroom_temperature

@@ -1,0 +1,7 @@
+name: 'Schlafzimmer: Heizung'
+view: no
+entities:
+  - climate.danfoss_bedroom_heating_1
+  - sensor.fibaro_fgk_bedroom_temperature
+  - sensor.dark_sky_temperature
+  - sensor.yweather_temperature

@@ -1,0 +1,7 @@
+platform: template
+sensors: 
+  aeotec_motion:
+    value_template: '{{ states.sensor.aeotec_ms6_kitchen_burglar.state == "8" }}'
+    friendly_name: 'AMS6 Motion'
+    entity_id: sensor.aeotec_ms6_kitchen_burglar
+    device_class: 'motion'

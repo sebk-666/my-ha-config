@@ -1,0 +1,19 @@
+alias: 'Switch to Musik lighting scene with AVR PhonoPre source '
+trigger:
+  - platform: template
+#    value_template: "{% if is_state_attr('media_player.denon_avr', 'source', 'DVD') %}true{% endif %}"
+    value_template: "{% if is_state_attr('media_player.denon_avr', 'source', 'PhonoPre') %}true{% endif %}"
+condition:
+  - condition: and
+    conditions:
+      - condition: sun
+        after: sunset
+        after_offset: '-00:15:00'
+      - condition: state
+        entity_id: light.wohnzimmer
+        state: 'on'
+action:
+  - service: light.hue_activate_scene
+    data:
+      group_name: 'Wohnzimmer'
+      scene_name: 'Musik'

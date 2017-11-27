@@ -1,0 +1,289 @@
+# -------------------------
+# CUSTOMIZE appearance
+# -------------------------
+media_player.Kodi:
+  icon: 'mdi:television'
+
+media_player.Denon_AVR:
+  icon: 'mdi:radio'
+
+script.restart_hass:
+  icon: mdi:restart
+  hidden: false
+
+script.clear_ozw_log:
+  icon: mdi:eraser
+  hidden: false
+
+script.heating_set_current:
+  hidden: false
+  icon: mdi:radiator
+
+device_tracker.iphone6s:
+  friendly_name: 'iPhone 6s'
+  icon: mdi:cellphone-iphone
+
+device_tracker.ipad:
+  icon: mdi:tablet-ipad
+  friendly_name: 'iPad Air 2'
+
+device_tracker.probook_probook:
+  icon: mdi:laptop-mac
+
+device_tracker.probook:
+  icon: mdi:laptop-mac
+
+device_tracker.xbox_one:
+  icon: mdi:xbox
+
+device_tracker.vzlaptop:
+  icon: mdi:laptop-windows
+
+device_tracker.vzlaptopwired:
+  icon: mdi:laptop-windows
+
+device_tracker.thinkpad:
+  icon: mdi:laptop-windows
+
+sensor.bedroom_window:
+  icon: mdi:glassdoor
+
+# -------------------------
+#  HIDE stuff
+# -------------------------
+
+group.all_automations:
+  hidden: false
+
+group.all_lights:
+  hidden: false
+
+group.all_scripts:
+  hidden: false
+
+sensor.sebastians_iphone_battery_level:
+  hidden: false
+
+sensor.sebastians_iphone_battery_state:
+  hidden: true
+
+sensor.sebastians_ipad_battery_level:
+  hidden: false
+
+sensor.sebastians_ipad_battery_state:
+  hidden: true
+
+light.wohnzimmer:
+  hidden: true
+
+light.schlafzimmer:
+  hidden: true
+
+light.buro:
+  hidden: true
+
+light.tv_lightstrip:
+  hidden: true
+
+light.all_hue_lights:
+  hidden: true
+
+light.group_for_wakeup:
+  hidden: true
+
+sensor.target_temp_livingroom:
+  hidden: true
+
+light.kuche:
+  hidden: true
+
+# -------------------------
+#  RENAME stuff
+# -------------------------
+sensor.sabnzbd_disk_free:
+  friendly_name: 'Free Disk Space'
+
+climate.danfoss_office_heating_1:
+  friendly_name: 'Arbeitszimmer'
+
+sensor.danfoss_office_battery_level:
+  friendly_name: 'Thermostat Arbeitszimmer'
+
+climate.danfoss_bedroom_heating_1:
+  friendly_name: 'Schlafzimmer'
+
+sensor.danfoss_bedroom_battery_level:
+  friendly_name: 'Thermostat Schlafzimmer'
+
+climate.danfoss_livingroom_heating_1:
+  friendly_name: 'Wohnzimmer'
+
+sensor.danfoss_livingroom_battery_level:
+  friendly_name: 'Thermostat Wohnzimmer'
+
+climate.danfoss_bathroom_heating_1:
+  friendly_name: 'Bad'
+
+sensor.danfoss_bathroom_battery_level:
+  friendly_name: 'Thermostat Bad'
+
+climate.danfoss_kitchen_heating_1:
+  friendly_name: 'Küche'
+
+sensor.danfoss_kitchen_battery_level:
+  friendly_name: 'Thermostat Kueche'
+
+binary_sensor.fibaro_fgms_livingroom_sensor:
+  friendly_name: 'Fibaro FGMS001'
+
+sensor.fibaro_fgms_livingroom_alarm_level:
+  friendly_name: 'Fib Alarm Level'
+  hidden: true
+
+sensor.fibaro_fgms_livingroom_battery_level:
+  friendly_name: 'Batterie FGMS-001'
+
+sensor.fibaro_fgms_livingroom_alarm_type:
+  friendly_name: 'Fib Alarm Type'
+  hidden: true
+
+sensor.fibaro_fgms_livingroom_burglar0:
+  friendly_name: 'Burglar Wohnzimmer'
+
+sensor.fibaro_fgms_livingroom_general:
+  friendly_name: 'Fib General WZ'
+  hidden: true
+
+sensor.fibaro_fgms_livingroom_luminance:
+  friendly_name: 'Luminance Wohnzimmer'
+
+sensor.fibaro_fgms_livingroom_seismic_intensity5:
+  friendly_name: 'Seismic Wohnzimmer'
+
+sensor.fibaro_fgms_livingroom_sourcenodeid:
+  friendly_name: 'Motion Wohnzimmer'
+
+sensor.fibaro_fgms_livingroom_temperature:
+  friendly_name: 'Temperatur Wohnzimmer'
+
+binary_sensor.nodemcu01_motion:
+  friendly_name: 'Schlafzimmer Motion'
+
+## bedroom window
+binary_sensor.fibaro_fgk_bedroom_sensor:
+  friendly_name: 'Bedroom Window Sensor'
+
+sensor.fibaro_fgk_bedroom_battery_level:
+  friendly_name: 'Batterie FGK-10x'
+
+sensor.fibaro_fgk_bedroom_alarm_level:
+  friendly_name: 'Bedroom Window Alarm Level'
+  hidden: true
+
+sensor.fibaro_fgk_bedroom_alarm_type:
+  friendly_name: 'Bedroom Window Alarm Type'
+  hidden: true
+
+sensor.fibaro_fgk_bedroom_access_control:
+  friendly_name: 'Fib FGK Access Control'
+
+sensor.fibaro_fgk_bedroom_burglar:
+  friendly_name: 'Fib FGK Burglar'
+
+sensor.fibaro_fgk_bedroom_general:
+  friendly_name: 'Fib FGK General'
+  hidden: true
+
+sensor.fibaro_fgk_bedroom_heat:
+  friendly_name: 'Fib FGK Heat'
+  hidden: true
+
+sensor.fibaro_fgk_bedroom_system:
+  friendly_name: 'Fib FGK System'
+  hidden: true
+
+sensor.fibaro_fgk_bedroom_temperature:
+  friendly_name: 'Temperatur Schlafzimmer'
+
+binary_sensor.bedroom_cold_outside:
+  friendly_name: 'Bedroom Window Open Alert ARMED'
+
+# zwave devices
+#zwave.aeotec_zw090_zstick_gen5_1
+zwave.aeotec_ms6_kitchen:
+  friendly_name: 'Aeotec Multisensor 6'
+
+zwave.danfoss_office:
+  friendly_name: 'Thermostat Arbeitszimmer'
+
+zwave.danfoss_bedroom:
+  friendly_name: 'Thermostat Schlafzimmer'
+
+zwave.danfoss_livingroom:
+  friendly_name: 'Thermostat Wohnzimmer'
+
+zwave.danfoss_bathroom:
+  friendly_name: 'Thermostat Bad'
+
+zwave.danfoss_kitchen:
+  friendly_name: 'Thermostat Küche' 
+
+zwave.fibaro_fgk_bedroom:
+  friendly_name: 'Fibaro FGK-10x Schlafzimmer'
+    
+zwave.fibaro_fgms_livingroom:
+  friendly_name: 'Fibaro FGMS-001 Wohnzimmer'
+  
+# Aeotec Multisensor 6
+binary_sensor.aeotec_ms6_kitchen_sensor:
+  friendly_name: 'AMS6 Binary Sensor'
+sensor.aeotec_ms6_kitchen_alarm_level:
+  friendly_name: 'AMS6 Alarm Level'
+sensor.aeotec_ms6_kitchen_alarm_type:
+  friendly_name: 'AMS6 Alarm Type'
+sensor.aeotec_ms6_kitchen_battery_level:
+  friendly_name: 'Batterie AMS6'
+sensor.aeotec_ms6_kitchen_burglar0:
+  friendly_name: 'AMS6 Burglar'
+  icon: mdi:run-fast
+sensor.aeotec_ms6_kitchen_luminance:
+  friendly_name: 'AMS6 Luminance'
+  icon: mdi:lightbulb-on-outline
+sensor.aeotec_ms6_kitchen_relative_humidity:
+  friendly_name: 'AMS6 Humidity'
+  icon: mdi:water-percent
+sensor.aeotec_ms6_kitchen_temperature:
+  friendly_name: 'AMS6 Temperature'
+sensor.aeotec_ms6_kitchen_ultraviolet7:
+  friendly_name: 'AMS Ultraviolet'
+  icon: mdi:sunglasses
+sensor.aeotec_ms6_kitchen_sourcenodeid:
+  friendly_name: 'AMS6 Source Node ID'
+
+input_boolean.weekend:
+  emulated_hue: true
+  emulated_hue_name: 'Wochenend Modus'
+
+input_boolean.venting:
+  emulated_hue: true
+  emulated_hue_name: 'Lüftungs Modus'
+
+script.kitchen_temperature:
+  emulated_hue: true
+  emulated_hue_name: "Heizung Küche"
+
+script.office_temperature:
+  emulated_hue: true
+  emulated_hue_name: "Heizung Büro"
+
+script.livingroom_temperature:
+  emulated_hue: true
+  emulated_hue_name: "Heizung Wohnzimmer"
+
+script.bathroom_temperature:
+  emulated_hue: true
+  emulated_hue_name: "Heizung Bad"
+
+device_tracker.34d270b2fc7b:
+  friendly_name: 'Amazon Echo'
+  icon: mdi:amazon

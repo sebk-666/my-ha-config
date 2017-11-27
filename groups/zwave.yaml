@@ -1,0 +1,11 @@
+name: ZWave Devices
+entities:
+  - zwave.aeotec_zw090_zstick_gen5
+  - zwave.aeotec_ms6_kitchen
+  - zwave.danfoss_office
+  - zwave.danfoss_bedroom
+  - zwave.danfoss_livingroom
+  - zwave.danfoss_bathroom
+  - zwave.danfoss_kitchen
+  - zwave.fibaro_fgk_bedroom
+  - zwave.fibaro_fgms_livingroom

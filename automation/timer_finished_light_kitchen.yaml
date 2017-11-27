@@ -1,0 +1,14 @@
+alias: 'Return kitchen lights to night mode when timer runs out'
+trigger:
+  platform: state
+  entity_id: timer.light_kitchen
+  from: 'active'
+  to: 'idle'
+condition:
+  condition: template
+  value_template: '{{ states.light.kuche.attributes.brightness == 250 }}'
+action:
+  service: light.hue_activate_scene
+  data:
+    group_name: 'Küche'
+    scene_name: 'Night Mode'

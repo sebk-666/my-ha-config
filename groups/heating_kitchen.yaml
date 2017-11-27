@@ -1,0 +1,6 @@
+name: 'Küche'
+entities:
+  - input_number.heating_kitchen_morning
+  - input_number.heating_kitchen_day
+  - input_number.heating_kitchen_evening
+  - input_number.heating_kitchen_night

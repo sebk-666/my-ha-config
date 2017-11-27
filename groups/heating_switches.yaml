@@ -1,0 +1,6 @@
+name: 'Settings'
+entities:
+  - input_boolean.weekend
+  - input_boolean.venting
+  - input_select.housemode
+  - script.heating_set_current

@@ -1,0 +1,7 @@
+name: 'Thermostate'
+entities:
+  - climate.danfoss_office_heating_1
+  - climate.danfoss_bedroom_heating_1
+  - climate.danfoss_livingroom_heating_1
+  - climate.danfoss_bathroom_heating_1
+  - climate.danfoss_kitchen_heating_1

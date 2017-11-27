@@ -1,0 +1,175 @@
+#  icon: mdi:thermometer-lines
+#  icon: mdi:thermometer
+#  icon: mdi:temperature-celsius
+#
+heating_livingroom:
+  min: 4
+  max: 30
+  step: 1
+heating_office:
+  min: 4
+  max: 30
+  step: 1
+heating_bedroom:
+  min: 4
+  max: 30
+  step: 1
+heating_bathroom:
+  min: 4
+  max: 30
+  step: 1
+heating_kitchen:
+  min: 4
+  max: 30
+  step: 1
+# -----------------------------------------------
+# Livingroom
+# -----------------------------------------------
+heating_livingroom_night:
+  name: 'nachts'
+  #initial: 16
+  min: 10
+  max: 30
+  step: 1
+  icon: mdi:weather-night
+  mode: box
+heating_livingroom_day:
+  name: 'tagsüber'
+  #initial: 18
+  min: 10
+  max: 30
+  step: 1
+  icon: mdi:weather-sunny
+  mode: box
+heating_livingroom_evening:
+  name: 'abends'
+  initial: 23
+  min: 10
+  max: 30
+  step: 1
+  mode: box
+  icon: mdi:weather-sunset
+# -----------------------------------------------
+# Office
+# -----------------------------------------------
+heating_office_night:
+  mode: box
+  name: 'nachts'
+  #initial: 16
+  min: 10
+  max: 30
+  step: 1
+  icon: mdi:weather-night
+heating_office_day:
+  mode: box
+  name: 'tagsüber'
+  #initial: 18
+  min: 10
+  max: 30
+  step: 1
+  icon: mdi:weather-sunny
+heating_office_evening:
+  mode: box
+  name: 'abends'
+  #initial: 21
+  min: 10
+  max: 30
+  step: 1
+  icon: mdi:weather-sunset
+# -----------------------------------------------
+# Bedroom
+# -----------------------------------------------
+heating_bedroom_night:
+  mode: box
+  name: 'nachts'
+  #initial: 14
+  min: 10
+  max: 30
+  step: 1
+  icon: mdi:weather-night
+heating_bedroom_day:
+  mode: box
+  name: 'tagsüber'
+  #initial: 16
+  min: 10
+  max: 30
+  step: 1
+  icon: mdi:weather-sunny
+heating_bedroom_evening:
+  mode: box
+  name: 'abends'
+  #initial: 16
+  min: 10
+  max: 30
+  step: 1
+  icon: mdi:weather-sunset
+# -----------------------------------------------
+# Bathroom
+# -----------------------------------------------
+heating_bathroom_night:
+  mode: box
+  name: 'nachts'
+  #initial: 16
+  min: 10
+  max: 30
+  step: 1
+  icon: mdi:weather-night
+heating_bathroom_morning:
+  mode: box
+  name: 'morgens'
+  #initial: 18
+  min: 10
+  max: 30
+  step: 1
+  icon: mdi:weather-night
+heating_bathroom_day:
+  mode: box
+  name: 'tagsüber'
+  #initial: 17
+  min: 10
+  max: 30
+  step: 1
+  icon: mdi:weather-sunny
+heating_bathroom_evening:
+  mode: box
+  name: 'abends'
+  #initial: 18
+  min: 10
+  max: 30
+  step: 1
+  icon: mdi:weather-sunset
+# -----------------------------------------------
+# Kitchen
+# -----------------------------------------------
+heating_kitchen_night:
+  mode: box
+  name: 'nachts'
+  #initial: 16
+  min: 10
+  max: 30
+  step: 1
+  icon: mdi:weather-night
+heating_kitchen_morning:
+  mode: box
+  name: 'morgens'
+  #initial: 19
+  min: 10
+  max: 30
+  step: 1
+  icon: mdi:weather-night
+heating_kitchen_day:
+  mode: box
+  name: 'tagsüber'
+  #initial: 18
+  min: 10
+  max: 30
+  step: 1
+  icon: mdi:weather-sunny
+heating_kitchen_evening:
+  mode: box
+  name: 'abends'
+  #initial: 19
+  min: 10
+  max: 30
+  step: 1
+  icon: mdi:weather-sunset

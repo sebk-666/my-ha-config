@@ -1,0 +1,11 @@
+"sensor.battery_*":
+  icon: mdi:battery-60
+
+"sensor.bat_*":
+  icon: mdi:battery-60
+
+"sensor.*_battery_level_*":
+  icon: mdi:battery-60
+
+"script.*":
+  hidden: true

@@ -1,0 +1,5 @@
+name: Schlafzimmer
+entities:
+  - light.schlafzimmerlampe
+#icon: mdi:hotel
+view: no

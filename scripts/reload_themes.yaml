@@ -1,0 +1,3 @@
+  alias: 'Reload Themes'
+  sequence:
+    service: frontend.reload_themes

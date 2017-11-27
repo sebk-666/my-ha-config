@@ -1,0 +1,4 @@
+name: 'Arbeitszimmer: Heizung'
+view: no
+entities:
+  - climate.danfoss_office_heating_1

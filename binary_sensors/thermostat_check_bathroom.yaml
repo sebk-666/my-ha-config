@@ -1,0 +1,11 @@
+platform: template
+sensors: 
+  thermostat_check_bathroom:
+    value_template: '{{ states.climate.danfoss_bathroom_heating_1.attributes.temperature | int != states.input_number.heating_bathroom.state | int }}'
+    friendly_name: 'Bad'
+    #device_class: None
+    delay_on:
+      minutes: 15
+    entity_id: 
+      - climate.danfoss_bathroom_heating_1
+      - input_number.heating_bathroom

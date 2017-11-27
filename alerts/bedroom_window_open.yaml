@@ -1,0 +1,11 @@
+name: 'Bedroom Window Open Alert'
+#entity_id: sensor.bedroom_window
+entity_id: binary_sensor.bedroom_cold_outside
+state: 'on'
+repeat: 
+  - 10 
+  - 5
+can_acknowledge: True
+skip_first: 'true'
+notifiers:
+  - ios_iphone6s

@@ -1,0 +1,7 @@
+name: 'Küche'
+entities:
+  - group.kitchen_heating
+  - group.heating_kitchen
+  - group.kitchen_lights
+icon: mdi:food-fork-drink
+view: yes

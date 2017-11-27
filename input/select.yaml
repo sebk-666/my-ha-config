@@ -1,0 +1,25 @@
+housemode:
+  name: 'House Mode'
+  options:
+    - 'auto'
+    - 'Tag'
+    - 'Abend'
+    - 'Nacht'
+  initial: 'auto'
+  icon: mdi:auto-fix
+
+housemode_current:
+  name: 'Currently Active House Mode'
+  options:
+    - 'unset'
+    - 'Tag'
+    - 'Abend'
+    - 'Nacht'
+  initial: 'unset'
+
+theme:
+  name: 'theme'
+  options:
+    - 'grey'
+    - 'default'
+    - 'dark'

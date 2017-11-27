@@ -1,0 +1,8 @@
+name: Schlafzimmerfenster
+entities:
+  - sensor.bedroom_window
+  - binary_sensor.fibaro_fgk_bedroom_sensor
+  - binary_sensor.bedroom_cold_outside
+  - alert.bedroom_window_open
+#icon: mdi:hotel
+view: no

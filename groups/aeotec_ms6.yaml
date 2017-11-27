@@ -1,0 +1,14 @@
+name: 'Aeotec Multisensor 6'
+entities:
+  - binary_sensor.aeotec_motion
+  - binary_sensor.aeotec_vibration
+  - binary_sensor.aeotec_ms6_kitchen_sensor
+#  - sensor.aeotec_ms6_kitchen_alarm_level
+#  - sensor.aeotec_ms6_kitchen_alarm_type
+#  - sensor.aeotec_ms6_kitchen_battery_level
+#  - sensor.aeotec_ms6_kitchen_burglar0
+  - sensor.aeotec_ms6_kitchen_luminance
+  - sensor.aeotec_ms6_kitchen_relative_humidity
+  - sensor.aeotec_ms6_kitchen_temperature
+  - sensor.aeotec_ms6_kitchen_ultraviolet7
+#  - sensor.aeotec_ms6_kitchen_sourcenodeid

@@ -1,0 +1,22 @@
+  alias: 'Thermostat-Einstellungen aktualisieren'
+  sequence:
+    - service: climate.set_temperature
+      data_template:
+        entity_id: climate.danfoss_kitchen_heating_1
+        temperature: '{{ states.input_number.heating_kitchen.state }}'
+    - service: climate.set_temperature
+      data_template:
+        entity_id: climate.danfoss_office_heating_1
+        temperature: '{{ states.input_number.heating_office.state }}'
+    - service: climate.set_temperature
+      data_template:
+        entity_id: climate.danfoss_bathroom_heating_1
+        temperature: '{{ states.input_number.heating_bathroom.state }}'
+    - service: climate.set_temperature
+      data_template:
+        entity_id: climate.danfoss_bedroom_heating_1
+        temperature: '{{ states.input_number.heating_bedroom.state }}'
+    - service: climate.set_temperature
+      data_template:
+        entity_id: climate.danfoss_livingroom_heating_1
+        temperature: '{{ states.input_number.heating_livingroom.state }}'

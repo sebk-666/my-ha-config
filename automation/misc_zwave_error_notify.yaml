@@ -1,0 +1,11 @@
+alias: OpenZWave Error notifications
+initial_state: 'off'
+trigger:
+  - platform: state
+    entity_id: binary_sensor.openzwave_error
+    to: 'on'
+action:
+  service: notify.ios_iphone6s
+  data:
+    message: 'An ERROR occured during OpenZWave communications.'
+    title: 'ERROR'

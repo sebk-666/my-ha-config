@@ -1,0 +1,16 @@
+name: 'All Lights'
+view: no
+entities:
+  - light.stehlampe
+  - light.stehlampe_2
+  - light.tischlampe
+  - light.iris_tv_r
+  - light.iris_tv_l
+  - light.hifi_rack
+  - light.lightstrip_tv
+  - light.lightstrip_lp
+  - light.deckenlampe
+  - light.schreibtischlampe
+  - light.schlafzimmerlampe
+  - light.kuche_2
+  - light.kuche_3

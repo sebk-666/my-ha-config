@@ -1,0 +1,5 @@
+  alias: 'Bedroom: Turn on lamp with previous state'
+  sequence:
+    - service: light.turn_on
+      data_template:
+        entity_id: light.schlafzimmerlape

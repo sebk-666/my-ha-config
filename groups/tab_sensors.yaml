@@ -1,0 +1,11 @@
+name: 'Sensors'
+entities:
+  - group.fibaro_fgms
+  - group.fibaro_fgk
+  - group.nodemcu_motion
+  - group.battery_levels
+  - group.qnapnas
+  - group.aeotec_ms6
+  - group.zwave_errors
+icon: mdi:speedometer
+view: yes

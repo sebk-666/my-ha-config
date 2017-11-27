@@ -1,0 +1,7 @@
+name: Office
+entities:
+  - light.deckenlampe
+  - light.schreibtischlampe
+  - media_player.kodi_probook
+#icon: mdi:mouse
+view: no

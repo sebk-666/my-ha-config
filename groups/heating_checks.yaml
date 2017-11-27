@@ -1,0 +1,7 @@
+name: 'Warnung Solltemperatur'
+entities:
+  - binary_sensor.thermostat_check_office
+  - binary_sensor.thermostat_check_bedroom
+  - binary_sensor.thermostat_check_livingroom
+  - binary_sensor.thermostat_check_bathroom
+  - binary_sensor.thermostat_check_kitchen

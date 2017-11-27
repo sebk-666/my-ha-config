@@ -1,0 +1,37 @@
+alias: 'Turn On Movie Lights After Sunset'
+trigger:
+  - platform: numeric_state
+    entity_id: sensor.fibaro_fgms_livingroom_luminance
+    below: 3.0
+    value_template: '{{ state.state }}'
+  - platform: state
+    entity_id: media_player.kodi_wetek
+    from: 'off'
+# ##
+# - kodi has to be 'on' - in case the sunset triggers this automation
+# - if the trigger is 'kodi turning on', make sure it's dark already
+# - the lights shouldn't be on already (-> tischlampe, stehlampe)
+# ##
+condition:
+  - condition: and
+    conditions:
+      - condition: numeric_state
+        entity_id: sensor.fibaro_fgms_livingroom_luminance
+        value_template: '{{ state.state }}'
+        below: 3.0
+      - condition: or
+        conditions:
+          - condition: state
+            entity_id: media_player.kodi_wetek
+            state: 'playing'
+          - condition: state
+            entity_id: media_player.kodi_wetek
+            state: 'idle'
+          - condition: state
+            entity_id: media_player.kodi_wetek
+            state: 'paused'
+action:
+  - service: light.hue_activate_scene
+    data:
+      group_name: 'Wohnzimmer'
+      scene_name: 'Movie'

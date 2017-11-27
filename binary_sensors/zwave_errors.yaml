@@ -1,0 +1,5 @@
+platform: command_line
+name: OpenZWave Error
+command: "/bin/bash -c '/bin/grep -q ERROR /config/OZW_Log.txt && /bin/echo ON || /bin/echo OFF'"
+payload_on: "ON"
+payload_off: "OFF"

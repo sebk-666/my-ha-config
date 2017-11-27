@@ -1,0 +1,24 @@
+# weekend mode will get turned on again by the home office detection automation
+alias: 'Reset Weekend Mode on Weekdays'
+trigger:
+  - platform: time
+    hours:  06 
+    minutes: 00
+    seconds: 00
+condition:
+  - condition: and
+    conditions: 
+    - condition: state
+      entity_id: input_boolean.weekend
+      state: 'on'
+    - condition: time
+      weekday:
+        - mon
+        - tue
+        - wed
+        - thu
+        - fri
+action:
+  - service: input_boolean.turn_off
+    data:
+      entity_id: input_boolean.weekend

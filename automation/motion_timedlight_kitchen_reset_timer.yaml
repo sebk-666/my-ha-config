@@ -1,0 +1,13 @@
+alias: 'Reset kitchen light timer when motion detected while active'
+trigger:
+  - platform: state
+    entity_id: binary_sensor.aeotec_motion
+    to: 'on'
+    from: 'off'
+condition:
+  - condition: state
+    entity_id: timer.light_kitchen
+    state: 'active'
+action:
+  - service: timer.start
+    entity_id: timer.light_kitchen

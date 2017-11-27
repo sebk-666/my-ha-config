@@ -1,0 +1,11 @@
+platform: template
+sensors: 
+  thermostat_check_bedroom:
+    value_template: '{{ states.climate.danfoss_bedroom_heating_1.attributes.temperature | int != states.input_number.heating_bedroom.state | int }}'
+    friendly_name: 'Schlafzimmer'
+    #device_class: None
+    delay_on:
+      minutes: 15
+    entity_id: 
+      - climate.danfoss_bedroom_heating_1
+      - input_number.heating_bedroom

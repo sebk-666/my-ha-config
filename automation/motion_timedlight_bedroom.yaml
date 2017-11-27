@@ -1,0 +1,47 @@
+alias: 'Bedroom Motion Sensor: Timed Light'
+trigger:
+  - platform: state
+    entity_id: binary_sensor.nodemcu02_motion
+    to: 'on'
+condition:
+  - condition: and
+    conditions:
+      - condition: numeric_state
+        entity_id: sun.sun
+        # see: https://home-assistant.io/topics/state_object/
+        value_template: '{{ state.attributes.elevation }}'
+        below: 5
+      - condition: state
+        entity_id: group.bedroom_lights
+        state: 'off'
+        for:
+          seconds: 11
+      # turn on the light only at certain hours OR
+      # when there's at least one other light on anywhere
+      # to avoid switching the light on in the middle of the night
+      # due to false motion detection
+      - condition: or
+        conditions:
+          - condition: template
+            value_template: '{{ now().hour >= 17 or now().hour <= 23 }}'
+          - condition: template
+            value_template: '{{ now().hour >= 6 or now().hour <= 8 }}'
+          - condition: state
+            entity_id: group.all_lights
+            state: 'on'
+action:
+# when turning on the light less then 5 minutes after it was turned off
+# restore the last brightness state instead of setting it to max brightness
+  - condition: state
+    entity_id: group.bedroom_lights
+    state: 'off'
+  - service: timer.start
+    entity_id: timer.light_bedroom
+  - service: script.turn_on
+    data_template:
+      entity_id: >-
+        {% if as_timestamp(utcnow()) -as_timestamp(states.group.bedroom_lights.last_changed) > 5*60 %}
+        script.bedroom_lamp_on
+        {% else %}
+        script.bedroom_lamp_restore
+        {% endif %}

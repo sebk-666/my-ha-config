@@ -1,0 +1,12 @@
+  alias: 'Livingroom: Turn on timed lamp and set timer'
+  sequence:
+    - service: script.turn_off
+      data:
+        entity_id: script.timer_off
+    - service: light.turn_on
+      data:
+        entity_id: light.hifi_rack
+        brightness: 255
+    - service: script.turn_on
+      data:
+        entity_id: script.timer_off

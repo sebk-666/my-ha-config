@@ -1,0 +1,27 @@
+alias: 'Heizung: Home-Office Detection'
+trigger:
+  - platform: time
+    at: 08:30
+condition:
+  - condition: and
+    conditions:
+#    - condition: state
+#      entity_id: device_tracker.iphone6s
+#      state: home
+    - condition: state
+      entity_id: device_tracker.thinkpad
+      state: home
+    - condition: time
+      weekday:
+        - mon
+        - tue
+        - wed
+        - thu
+        - fri
+action:
+  - service: input_boolean.turn_on
+    data:
+      entity_id: input_boolean.weekend
+  - service: notify.ios_iphone6s
+    data:
+      message: 'Switching Heating to Home-Office Mode'

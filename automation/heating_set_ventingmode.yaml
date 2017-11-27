@@ -1,0 +1,25 @@
+alias: 'Heizung Lueftungsmodus'
+hide_entity: true
+trigger:
+  platform: state
+  entity_id: input_boolean.venting
+  to: 'on'
+action:
+  - service: climate.set_temperature
+    data:
+      entity_id:
+        - climate.danfoss_office_heating_1
+        - climate.danfoss_bedroom_heating_1
+        - climate.danfoss_livingroom_heating_1
+        - climate.danfoss_bathroom_heating_1
+        - climate.danfoss_kitchen_heating_1
+      temperature: '4'
+  - service: input_number.set_value
+    data:
+      entity_id: 
+        - input_number.heating_office
+        - input_number.heating_bedroom
+        - input_number.heating_livingroom
+        - input_number.heating_bathroom
+        - input_number.heating_kitchen
+      value: 4

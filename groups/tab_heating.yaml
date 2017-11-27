@@ -1,0 +1,13 @@
+name: 'Heizung'
+entities:
+  - automation.heizung_wz_wochentags
+  - automation.heizung_wz_wochenende
+  - automation.heizungseinstellung_tag
+  - automation.heizungseinstellung_abend
+  - automation.heizungseinstellung_nacht
+  - automation.thermostat_battery_check
+  - group.heating_switches
+  - group.heating_controls
+  - group.heating_checks
+icon: mdi:thermometer-lines
+view: True

@@ -1,0 +1,7 @@
+name: 'Arbeitszimmer'
+entities:
+  - group.office
+  - group.office_heating
+  - group.heating_office
+icon: mdi:laptop-mac
+view: yes

@@ -1,0 +1,10 @@
+name: 'Tracked Devices'
+entities:
+  - device_tracker.iphone6s
+  - device_tracker.ipad
+  - device_tracker.xbox_one
+  - device_tracker.vzlaptop
+  - device_tracker.vzlaptopwired
+  - device_tracker.probook
+  - device_tracker.34d270b2fc7b
+  - device_tracker.thinkpad

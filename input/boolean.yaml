@@ -1,0 +1,10 @@
+weekend:
+  icon: mdi:calendar
+  initial: False
+  name: 'Home-Office / Wochenend-Modus'
+
+venting:
+  icon: mdi:weather-windy
+  initial: false
+  name: 'Wohnung Lüften'
+

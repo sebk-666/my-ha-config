@@ -1,0 +1,9 @@
+name: 'Test Alert'
+#entity_id: sensor.bedroom_window
+entity_id: binary_sensor.bedroom_cold_outside
+state: 'on'
+repeat: 
+  - {%- if states.sensor.yweather_temperature.state | round > 20  -%}20{%- else -%}10{%- endif -%}
+can_acknowledge: True
+notifiers:
+  - ios_iphone6s

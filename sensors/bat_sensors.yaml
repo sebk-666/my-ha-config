@@ -1,0 +1,30 @@
+platform: template
+sensors:
+  bat_fgms:
+    value_template: '{% if states.zwave.fibaro_fgms_livingroom %}
+      {{ states.zwave.fibaro_fgms_livingroom.attributes.battery_level | int }}
+    {% else %}
+      n/a
+    {% endif %}'
+    friendly_name: 'Fibaro Motion Sensor'
+    unit_of_measurement: '%'
+
+  bat_fgk:
+    value_template: '{% if states.zwave.fibaro_fgk_bedroom %}
+      {{ states.zwave.fibaro_fgk_bedroom.attributes.battery_level | int }}
+    {% else %}
+      n/a
+    {% endif %}'
+    friendly_name: 'Fibaro Window Sensor Bedroom'
+    unit_of_measurement: '%'
+
+  bat_aeotec:
+    value_template: '{% if states.zwave.aeotec_ms6_kitchen %}
+      {{ states.zwave.aeotec_ms6_kitchen.attributes.battery_level | int }}
+    {% else %}
+      n/a
+    {% endif %}'
+    friendly_name: 'Aeotec Multisensor 6'
+    unit_of_measurement: '%'
+#    entity_id: zwave.aeotec_ms6_kitchen_22
+

@@ -1,0 +1,1 @@
+clear_ozw_log: cat > /config/OZW_Log.txt

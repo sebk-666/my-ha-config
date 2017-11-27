@@ -1,0 +1,108 @@
+alias: 'Heizungseinstellung Nacht'
+hide_entity: 'True'
+trigger:
+  - platform: time
+    hours: 21
+    minutes: 00
+    seconds: 00
+  - platform: state
+    entity_id: input_number.heating_livingroom_night
+  - platform: state
+    entity_id: input_number.heating_bedroom_night
+  - platform: state
+    entity_id: input_number.heating_office_night
+  - platform: state
+    entity_id: input_number.heating_bathroom_night
+  - platform: state
+    entity_id: input_number.heating_kitchen_night
+  - platform: state
+    entity_id: input_boolean.venting
+    to: 'off'
+  - platform: state
+    entity_id: input_select.housemode
+    to: 'Nacht'
+  - platform: state
+    entity_id: sensor.bedroom_window
+    to: 'Closed'
+condition:
+# To activate, the following conditions must all be true:
+#  - it must be the right time frame
+#  - venting mode must be off
+#  - house mode must be either "auto" or "Nacht"
+  - condition: and
+    conditions:
+      - condition: or
+        conditions:
+          - condition: template
+            value_template: '{{ now().hour < 8 }}'
+          - condition: template
+            value_template: '{{ now().hour >= 21 }}'
+          - condition: state
+            entity_id: input_select.housemode
+            state: 'Nacht'
+      - condition: state
+        entity_id: input_boolean.venting
+        state: 'off'
+      - condition: or
+        conditions:
+          - condition: state
+            entity_id: input_select.housemode
+            state: 'Nacht'
+          - condition: state
+            entity_id: input_select.housemode
+            state: 'auto'
+action:
+  - service: climate.set_temperature
+    data_template:
+      entity_id: climate.danfoss_kitchen_heating_1
+      temperature: '{{ states.input_number.heating_kitchen_night.state }}'
+  - service: climate.set_temperature
+    data_template:
+      entity_id: climate.danfoss_bathroom_heating_1
+      temperature: '{{ states.input_number.heating_bathroom_night.state }}'
+  - service: climate.set_temperature
+    data_template:
+      entity_id: climate.danfoss_livingroom_heating_1
+      temperature: '{{ states.input_number.heating_livingroom_night.state }}'
+  - service: climate.set_temperature
+    data_template:
+      entity_id: climate.danfoss_bedroom_heating_1
+      temperature: '{{ states.input_number.heating_bedroom_night.state }}'
+  - service: climate.set_temperature
+    data_template:
+      entity_id: climate.danfoss_office_heating_1
+      temperature: '{{ states.input_number.heating_office_night.state }}'
+  - service: input_number.set_value
+    data_template:
+      entity_id: input_number.heating_bathroom
+      value: '{{ states.input_number.heating_bathroom_night.state }}'
+  - service: input_number.set_value
+    data_template:
+      entity_id: input_number.heating_kitchen
+      value: '{{ states.input_number.heating_kitchen_night.state }}'
+  - service: input_number.set_value
+    data_template:
+      entity_id: input_number.heating_livingroom
+      value: '{{ states.input_number.heating_livingroom_night.state }}'
+  - service: input_number.set_value
+    data_template:
+      entity_id: input_number.heating_bedroom
+      value: '{{ states.input_number.heating_bedroom_night.state }}'
+  - service: input_number.set_value
+    data_template:
+      entity_id: input_number.heating_office
+      value: '{{ states.input_number.heating_office_night.state }}'
+# if the automation was triggered by the "time" trigger (i.e. regular automated switching)
+# and the house mode was already manually set to "Nacht" before
+# switch house mode to "Auto" again, thus resetting the manual override
+  - condition: and
+    conditions:
+      - condition: template
+        value_template: '{{ trigger.platform == "time" }}'
+      - condition: state
+        entity_id: input_select.housemode
+        state: 'Nacht'
+  - service: input_select.select_option
+    data:
+      entity_id: input_select.housemode
+      option: 'auto'

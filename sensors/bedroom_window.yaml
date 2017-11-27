@@ -1,0 +1,20 @@
+platform: template
+sensors: 
+  bedroom_window:
+    value_template: '{% if states.sensor.fibaro_fgk_bedroom_access_control %}
+      {% if states.sensor.fibaro_fgk_bedroom_access_control.state == "23" %}
+        Closed
+      {% elif states.sensor.fibaro_fgk_bedroom_access_control.state == "22" %}
+        Open
+      {% elif states.sensor.fibaro_fgk_bedroom_access_control.state == "254" %}
+        ALARM
+      {% else %}
+        unknown
+      {% endif %}
+      {% else %}
+        n/a
+      {% endif %}' 
+    friendly_name: 'Bedroom Window'
+    entity_id: sensor.fibaro_fgk_bedroom_access_control
+    #entity_picture: mdi:glassdoor
+    #sensor_class: 'opening'

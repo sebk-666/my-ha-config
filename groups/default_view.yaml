@@ -1,0 +1,13 @@
+view: yes
+entities:
+  - group.all_lights
+  - group.all_scripts
+  - group.all_automations
+  - group.sabnzbd
+  - group.zwave
+  - group.automation
+  - group.tracked_devices
+  - group.theme
+#  - group.fibaro_fgms
+#  - group.fibaro_fgk
+#  - group.nodemcu_motion

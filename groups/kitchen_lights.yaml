@@ -1,0 +1,6 @@
+name: Kitchen Lights
+entities:
+  - light.kuche_spot
+  - light.kuche_spot_2
+  - timer.light_kitchen
+view: no

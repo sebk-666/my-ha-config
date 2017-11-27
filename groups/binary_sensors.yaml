@@ -1,0 +1,30 @@
+name: "Binary Sensor Types and Icons"
+entities:
+  - binary_sensor.cold_ON
+  - binary_sensor.cold_OFF
+  - binary_sensor.connectivity_ON
+  - binary_sensor.connectivity_OFF
+  - binary_sensor.heat_ON
+  - binary_sensor.heat_OFF
+  - binary_sensor.light_ON
+  - binary_sensor.light_OFF
+  - binary_sensor.moisture_ON
+  - binary_sensor.moisture_OFF
+  - binary_sensor.motion_ON
+  - binary_sensor.motion_OFF
+  - binary_sensor.moving_ON
+  - binary_sensor.moving_OFF
+  - binary_sensor.occupancy_ON
+  - binary_sensor.occupancy_OFF
+  - binary_sensor.opening_ON
+  - binary_sensor.opening_OFF
+  - binary_sensor.power_ON
+  - binary_sensor.power_OFF
+  - binary_sensor.safety_ON
+  - binary_sensor.safety_OFF
+  - binary_sensor.smoke_ON
+  - binary_sensor.smoke_OFF
+  - binary_sensor.sound_ON
+  - binary_sensor.sound_OFF
+  - binary_sensor.vibration_ON
+  - binary_sensor.vibration_OFF

@@ -1,0 +1,7 @@
+platform: mqtt
+state_topic: '/nodemcu01/pir/motion'
+name: 'nodemcu01 motion'
+payload_on: '1'
+payload_off: '0'
+device_class: motion
+#value_template: '{{ value.x }}'

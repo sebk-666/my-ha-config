@@ -1,0 +1,7 @@
+  alias: 'turn off livingroom lamp after set time'
+  sequence:
+    - delay:
+        seconds: 30
+    - service: light.turn_off
+      data:
+        entity_id: light.hifi_rack

@@ -1,0 +1,9 @@
+name: 'Wohnzimmer'
+icon: mdi:sofa
+view: yes
+entities:
+  - group.livingroom_lights
+  - group.livingroom_media
+  - group.livingroom_heating
+  - group.fibaro_fgms
+  - group.heating_livingroom

@@ -1,0 +1,4 @@
+name: 'NodeMCU Motion Sensors'
+entities:
+  - binary_sensor.nodemcu01_motion
+  - binary_sensor.nodemcu02_motion

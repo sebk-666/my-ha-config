@@ -1,0 +1,7 @@
+speech:
+  type: plaintext
+  text: '{{ User }} ist zu Hause.'
+card:
+  type: simple
+  title: Sample title
+  content: Some more content

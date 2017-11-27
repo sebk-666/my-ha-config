@@ -1,0 +1,237 @@
+homeassistant:
+  name: 'Home'
+  latitude: !secret ha_lat
+  longitude: !secret ha_long
+  elevation: !secret ha_elv
+  unit_system: metric
+  time_zone: Europe/Berlin
+  customize: !include customize.yaml
+  customize_domain: !include customize_domain.yaml
+  customize_glob: !include customize_glob.yaml
+
+
+#------------------------------------------------ 
+# Enable stuff
+#------------------------------------------------ 
+frontend:
+  themes: !include_dir_named themes
+  javascript_version: latest
+
+updater:
+  reporting: no
+
+config:
+
+history:
+
+discovery:
+  ignore:
+    - philips_hue
+
+logbook:
+  exclude:
+    domains:
+      - group
+      - scene
+
+sun:
+
+# ios app
+ios:
+
+http:
+  server_port: 8123
+  api_password: !secret http_password
+  trusted_networks: 
+    # docker network
+    - 172.17.0.0/24
+    # local net
+    - 192.168.10.0/24
+
+alexa:
+  intents: !include_dir_named alexa_intents
+  flash_briefings: !include_dir_named alexa_flashbriefings
+
+#    LocateIntent:
+#      action:
+#        service: notify.notify
+#        data_template:
+#          message: The location of {{ User }} has been queried via Alexa.
+#      speech:
+#        type: plaintext
+#        text: '{{ User }} ist zu Hause.'
+#      card:
+#        type: simple
+#        title: Sample title
+#        content: Some more content
+
+recorder:
+  purge_keep_days: 14
+  purge_interval: 1
+  db_url: !secret mysql_url 
+
+
+influxdb:
+  host: 192.168.10.3
+  username: !secret influxdb_user
+  password: !secret influxdb_pass
+  include:
+    entities:
+      - sensor.fibaro_fgms_livingroom_temperature
+      - sensor.fibaro_fgms_livingroom_luminance
+      - sensor.fibaro_fgk_bedroom_temperature
+      - sensor.target_temp_livingroom
+      - sensor.target_temp_bedroom
+      - sensor.target_temp_kitchen
+      - sensor.sun_elevation
+      - sensor.aeotec_ms6_kitchen_luminance
+      - sensor.aeotec_ms6_kitchen_relative_humidity
+      - sensor.aeotec_ms6_kitchen_temperature
+      - sensor.bat_aeotec
+      - sensor.bat_fgms
+      - sensor.bat_fgk
+      - sensor.bat_bathroom
+      - sensor.bat_bedroom
+      - sensor.bat_kitchen
+      - sensor.bat_office
+      - sensor.bat_livingroom
+
+# logging
+# https://home-assistant.io/components/logger/
+#
+#    critical
+#    fatal
+#    error
+#    warning
+#    warn
+#    info
+#    debug
+#    notset
+#
+logger:
+  default: fatal
+#  default: info
+  logs:
+    homeassistant.components.sensor.qnap: error
+    homeassistant.components.media_player.denonavr: info
+    homeassistant.components.device_tracker.dd_wrt: warn
+    homeassistant.components.zwave: info
+    homeassistant.components.telegram_bot: error
+    #homeassistant.components.device_tracker: info
+
+light:
+  platform: hue
+  allow_unreachable: true
+  host: 192.168.10.5
+  allow_in_emulated_hue: true
+  allow_hue_groups: true
+
+emulated_hue:
+  advertise_ip: 192.168.10.3
+  upnp_bind_multicast: true
+#
+  host_ip: 192.168.10.3
+#
+  listen_port: 8300
+  advertise_port: 8300
+  expose_by_default: false
+  exposed_domains:
+    - input_boolean
+    - script
+
+mqtt: 
+  broker: 192.168.10.3
+  port: 1883
+  client_id: hass
+  keepalive: 60
+  username: !secret mqtt_user
+  password: !secret mqtt_pass
+
+zwave:
+  usb_path: /dev/ttyACM0
+  config_path: /usr/src/app/build/python-openzwave/openzwave/config/
+  polling_interval: 60000
+  autoheal: true
+  network_key: !secret zwave_network_key 
+  new_entity_ids: true
+
+telegram_bot:
+#  platform: webhooks
+  platform: polling
+  api_key: !secret telegram_api_key
+  allowed_chat_ids:
+    - !secret telegram_chatid
+
+#------------------------------------------------ 
+# Includes
+#------------------------------------------------ 
+#
+# We offer four advanced options to include whole directories at once.
+#
+#  !include_dir_list 
+#  will return the content of a directory as a list 
+#  with each file content being an entry in the list.
+#
+#  !include_dir_named 
+#  will return the content of a directory as a dictionary 
+#  which maps filename => content of file.
+#
+#  !include_dir_merge_list 
+#  will return the content of a directory as a list 
+#  by merging all files (which should contain a list) into 1 big list.
+#
+#  !include_dir_merge_named 
+#  will return the content of a directory as a dictionary 
+#  by loading each file and merging it into 1 big dictionary.
+#
+# https://home-assistant.io/topics/splitting_configuration/
+#------------------------------------------------
+
+input_boolean: !include input/boolean.yaml
+input_select: !include input/select.yaml
+input_number: !include input/number.yaml
+automation: !include_dir_list automation
+sensor: !include_dir_list sensors
+binary_sensor: !include_dir_list binary_sensors
+media_player: !include_dir_merge_list media_players
+notify: !include_dir_merge_list notify
+zone: !include_dir_merge_list zones
+device_tracker:  !include_dir_list devices
+#scene: !include_dir_list scenes
+group: !include_dir_named groups
+script: !include_dir_named scripts
+shell_command: !include shell_commands.yaml
+alert: !include_dir_named alerts
+timer: !include_dir_named timers
+
+#  certificate: /config/cert/certs.pem
+
+# https://home-assistant.io/components/device_sun_light_trigger/
+# light profiles: https://github.com/home-assistant/home-assistant/blob/master/homeassistant/components/light/light_profiles.csv
+
+#panel_iframe:
+#  grafana:
+#    title: 'Grafana Dashboard'
+#    icon: mdi:chart-line
+#    url: 'https://hass.dantana.sebastian-kaps.de/_grafana/dashboard/db/home-assistant'
+
+
+#panel_custom:
+#  - name:
+
+#device_sun_light_trigger:
+#  light_group: group.livingroom
+#  light_profile: relax
+#  device_group: group.sun_light_trigger_group
+
+#weblink:
+#  entities:
+#    - name: 'Domoticz'
+#      icon: mdi:home-outline
+#      url: 'http://192.168.10.3:8080'
+#    - name: 'Speedport W724V'
+#      icon: mdi:router-wireless
+#      url: 'http://192.168.10.250/html/login/index.html'
+#    - name: 'Brother HL-2360DW'
+#      icon: mdi:printer
+#      url: 'http://printer.sebastian-kaps.de'

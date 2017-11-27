@@ -1,0 +1,101 @@
+alias: 'Heizung: Wochentag-Modus'
+trigger:
+  - platform: time
+    hours: 00
+    minutes: 00
+    seconds: 05
+  - platform: state
+    entity_id: input_boolean.weekend
+    from: 'on'
+condition:
+  - condition: or
+    conditions:
+    # this needs to be 'and' otherwise the time trigger and weekend=on condition would suffice
+    # to turn on weekday mode on a sunday;
+    - condition: and
+      conditions:
+      - condition: time
+        weekday:
+          - mon
+      - condition: state
+        entity_id: input_boolean.weekend
+        state: 'on'
+    - condition: template
+      value_template: '{{ trigger.platform == "state" }}'
+action:
+  - service: input_boolean.turn_off
+    data:
+      entity_id: input_boolean.weekend
+#------------------------------------------------
+  - service: input_number.set_value
+    data_template:
+      entity_id: input_number.heating_office_day
+      value: 18
+  - service: input_number.set_value
+    data_template:
+      entity_id: input_number.heating_office_evening
+      value: 20
+  - service: input_number.set_value
+    data_template:
+      entity_id: input_number.heating_office_night
+      value: 16
+#------------------------------------------------
+  - service: input_number.set_value
+    data_template:
+      entity_id: input_number.heating_livingroom_day
+      value: 18
+  - service: input_number.set_value
+    data_template:
+      entity_id: input_number.heating_livingroom_evening
+      value: 24
+  - service: input_number.set_value
+    data_template:
+      entity_id: input_number.heating_livingroom_night
+      value: 16
+#------------------------------------------------
+  - service: input_number.set_value
+    data_template:
+      entity_id: input_number.heating_bedroom_day
+      value: 17
+  - service: input_number.set_value
+    data_template:
+      entity_id: input_number.heating_bedroom_evening
+      value: 16
+  - service: input_number.set_value
+    data_template:
+      entity_id: input_number.heating_bedroom_night
+      value: 16
+#------------------------------------------------
+  - service: input_number.set_value
+    data_template:
+      entity_id: input_number.heating_kitchen_morning
+      value: 19
+  - service: input_number.set_value
+    data_template:
+      entity_id: input_number.heating_kitchen_day
+      value: 18
+  - service: input_number.set_value
+    data_template:
+      entity_id: input_number.heating_kitchen_evening
+      value: 19
+  - service: input_number.set_value
+    data_template:
+      entity_id: input_number.heating_kitchen_night
+      value: 16
+#------------------------------------------------
+  - service: input_number.set_value
+    data_template:
+      entity_id: input_number.heating_bathroom_morning
+      value: 19
+  - service: input_number.set_value
+    data_template:
+      entity_id: input_number.heating_bathroom_day
+      value: 17
+  - service: input_number.set_value
+    data_template:
+      entity_id: input_number.heating_bathroom_evening
+      value: 18
+  - service: input_number.set_value
+    data_template:
+      entity_id: input_number.heating_bathroom_night
+      value: 16

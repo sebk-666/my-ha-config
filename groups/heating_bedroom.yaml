@@ -1,0 +1,6 @@
+name: 'Schlafzimmer'
+entities:
+  - input_number.heating_bedroom_day
+  - input_number.heating_bedroom_evening
+  - input_number.heating_bedroom_night
+

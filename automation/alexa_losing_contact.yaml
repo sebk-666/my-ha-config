@@ -1,0 +1,10 @@
+alias: 'Notify when Alexa is lost'
+trigger:
+  - platform: state
+    entity_id: device_tracker.34d270b2fc7b
+    from: 'home'
+    to: 'not_home'
+action:
+  service: notify.ios_iphone6s
+  data:
+    message: 'Alexa lost contact to network'

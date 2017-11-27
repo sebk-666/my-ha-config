@@ -1,0 +1,4 @@
+name: 'Bad: Heizung'
+view: no
+entities:
+  - climate.danfoss_bathroom_heating_1

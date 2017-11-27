@@ -1,0 +1,5 @@
+  alias: 'Set Theme'
+  sequence:
+    service: frontend.set_theme
+    data:
+      name: grey

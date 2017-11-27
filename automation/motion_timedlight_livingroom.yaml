@@ -1,0 +1,18 @@
+alias: 'WZ Motion Sensor: Timed Light'
+trigger:
+  - platform: state
+    entity_id: sensor.fibaro_fgms_livingroom_burglar
+    to: '8'
+condition:
+  - condition: and
+    conditions:
+      - condition: template
+        value_template: '{{ states.sensor.fibaro_fgms_livingroom_luminance.state | float <= 0.5 }}'
+      - condition: state
+        entity_id: group.livingroom_lights
+        state: 'off'
+      - condition: template
+        value_template: '{{ now().hour <= 17 }}'
+action:
+  service: homeassistant.turn_on
+  entity_id: script.wz_timed_lamp

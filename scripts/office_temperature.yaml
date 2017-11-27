@@ -1,0 +1,5 @@
+  sequence:
+    - service: climate.set_temperature
+      data_template:
+        entity_id: climate.danfoss_office_heating_1
+        temperature: "{{ requested_level }}"

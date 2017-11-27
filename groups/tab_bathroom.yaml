@@ -1,0 +1,6 @@
+name: 'Badezimmer'
+entities:
+  - group.bathroom_heating
+  - group.heating_bathroom
+icon: mdi:water
+view: yes

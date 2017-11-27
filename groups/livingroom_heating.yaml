@@ -1,0 +1,4 @@
+name: 'Wohnzimmer: Heizung'
+view: no
+entities:
+  - climate.danfoss_livingroom_heating_1

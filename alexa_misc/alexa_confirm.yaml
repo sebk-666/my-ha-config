@@ -1,0 +1,12 @@
+ >
+  {{ [
+  "OK",
+  "Klar",
+  "Erledigt",
+  "Done",
+  "Kein Problem",
+  "Wie Du willst",
+  "Mach ich",
+  "Check",
+  "Läuft"
+  ] | random }}

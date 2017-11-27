@@ -1,0 +1,6 @@
+platform: template
+sensors:
+  bat_iphone:
+    friendly_name: 'Battery iPhone 6s'
+    unit_of_measurement: '%'
+    value_template: '{{ states.device_tracker.iphone6s.attributes.battery }}'

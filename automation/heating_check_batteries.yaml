@@ -1,0 +1,34 @@
+alias: 'Thermostat Battery Check'
+trigger:
+  platform: time
+  hours: 10
+  minutes: 00
+condition:
+  - condition: or
+    conditions:
+    - condition: template
+      value_template: '{% if states.climate.danfoss_office %}
+      {{ states.climate.danfoss_office.attributes.battery_level < 20 }}
+      {% endif %}'
+    - condition: template
+      value_template: '{% if states.climate.danfoss_bedroom %}
+      {{ states.climate.danfoss_bedroom.attributes.battery_level < 20 }}
+      {% endif %}'
+    # living room thermostat stops reacting to zwave commands at about 55% battery level
+    - condition: template
+      value_template: '{% if states.climate.danfoss_livingroom %}
+      {{ states.climate.danfoss_livingroom.attributes.battery_level < 60 }}
+      {% endif %}'
+    - condition: template
+      value_template: '{% if states.climate.danfoss_bathroom %}
+      {{ states.climate.danfoss_bathroom.attributes.battery_level < 20 }}
+      {% endif %}'
+    - condition: template
+      value_template: '{% if states.climate.danfoss_kitchen %}
+      {{ states.climate.danfoss_kitchen.attributes.battery_level < 20 }}
+      {% endif %}'
+action:
+  service: notify.ios_iphone6s
+  data:
+    message: 'Batterie unter 20% bei mind. einem Thermostat!'
+    title: 'Batteries Low'

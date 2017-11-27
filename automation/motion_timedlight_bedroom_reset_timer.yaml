@@ -1,0 +1,13 @@
+alias: 'Reset bedroom light timer when motion detected while active'
+trigger:
+  - platform: state
+    entity_id: binary_sensor.nodemcu02_motion
+    to: 'on'
+    from: 'off'
+condition:
+  - condition: state
+    entity_id: timer.light_bedroom
+    state: 'active'
+action:
+  - service: timer.start
+    entity_id: timer.light_bedroom

@@ -1,0 +1,21 @@
+alias: 'Turn down heating in bedroom when window is opened'
+trigger:
+  platform: state
+  entity_id: sensor.bedroom_window
+  to: 'Open'
+condition:
+  - condition: and
+    conditions:
+    # if vent mode is already on, the heating should already be lowered; so nothing to do here
+      - condition: state
+        entity_id: input_boolean.venting
+        state: 'off'
+action:
+  - service: climate.set_temperature
+    data:
+      entity_id: climate.danfoss_bedroom_heating_1
+      temperature: '4'
+  - service: input_number.set_value
+    data:
+      entity_id: input_number.heating_bedroom
+      value: 4

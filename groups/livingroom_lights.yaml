@@ -1,0 +1,11 @@
+name: 'Wohnzimmer: Licht'
+entities:
+  - light.stehlampe
+  - light.stehlampe_2
+  - light.tischlampe
+  - light.iris_tv_r
+  - light.iris_tv_l
+  - light.hifi_rack
+  - light.lightstrip_tv
+  - light.lightstrip_lp
+view: no

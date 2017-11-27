@@ -1,0 +1,51 @@
+platform: template
+sensors:
+  bat_office:
+    value_template: '{% if states.zwave.danfoss_office %}
+      {{ states.zwave.danfoss_office.attributes.battery_level }}
+    {% else %}
+      n/a
+    {% endif %}'
+    friendly_name: 'Thermostat Arbeitszimmer'
+    unit_of_measurement: '%'
+    entity_id: zwave.danfoss_office
+
+  bat_bedroom:
+    value_template: '{% if states.zwave.danfoss_bedroom %}
+      {{ states.zwave.danfoss_bedroom.attributes.battery_level }}
+    {% else %}
+      n/a
+    {% endif %}'
+    friendly_name: 'Thermostat Schlafzimmer'
+    unit_of_measurement: '%'
+    entity_id: zwave.danfoss_bedroom
+
+  bat_livingroom:
+    value_template: '{% if states.zwave.danfoss_livingroom %}
+      {{ states.zwave.danfoss_livingroom.attributes.battery_level }}
+    {% else %}
+      n/a
+    {% endif %}'
+    friendly_name: 'Thermostat Wohnzimmer'
+    unit_of_measurement: '%'
+    entity_id: zwave.danfoss_livingroom
+
+  bat_bathroom:
+    value_template: '{% if states.zwave.danfoss_bathroom %}
+      {{ states.zwave.danfoss_bathroom.attributes.battery_level }}
+    {% else %}
+      n/a
+    {% endif %}'
+    friendly_name: 'Thermostat Bad'
+    unit_of_measurement: '%'
+    entity_id: zwave.danfoss_bathroom
+
+  bat_kitchen:
+    value_template: '{% if states.zwave.danfoss_kitchen %}
+      {{ states.zwave.danfoss_kitchen.attributes.battery_level }}
+    {% else %}
+      n/a
+    {% endif %}'
+    friendly_name: 'Thermostat Kueche'
+    unit_of_measurement: '%'
+    entity_id: zwave.danfoss_kitchen

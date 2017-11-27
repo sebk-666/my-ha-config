@@ -1,0 +1,22 @@
+alias: 'Check if thermostats have correct setting'
+trigger:
+  - platform: state
+    entity_id:  binary_sensor.thermostat_check_bedroom
+    to: 'on'
+  - platform: state
+    entity_id:  binary_sensor.thermostat_check_bathroom
+    to: 'on'
+  - platform: state
+    entity_id:  binary_sensor.thermostat_check_onice
+    to: 'on'
+  - platform: state
+    entity_id:  binary_sensor.thermostat_check_kitchen
+    to: 'on'
+  - platform: state
+    entity_id:  binary_sensor.thermostat_check_livingroom
+    to: 'on'
+action:
+  service: notify.ios_iphone6s
+  data_template:
+    message: 'Thermostat im {{trigger.to_state.attributes.friendly_name}} reagiert nicht!'
+    title: 'Thermostat Warnung'

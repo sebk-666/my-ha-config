@@ -1,0 +1,11 @@
+platform: template
+sensors:
+  sun_elevation:
+    value_template: '{% if states.sun.sun %}
+      {{ states.sun.sun.attributes.elevation }}
+      {% else %}
+      0
+      {% endif %}'
+    friendly_name: 'Sun Elevation'
+    unit_of_measurement: '°'
+    entity_id: sun.sun

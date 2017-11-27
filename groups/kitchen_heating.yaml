@@ -1,0 +1,4 @@
+name: 'Kueche: Heizung'
+view: no
+entities:
+  - climate.danfoss_kitchen_heating_1

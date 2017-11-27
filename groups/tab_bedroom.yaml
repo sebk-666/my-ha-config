@@ -1,0 +1,8 @@
+name: 'Schlafzimmer'
+entities:
+  - group.bedroom_lights
+  - group.bedroom_heating
+  - group.heating_bedroom
+  - group.bedroom_window
+icon: mdi:hotel
+view: yes

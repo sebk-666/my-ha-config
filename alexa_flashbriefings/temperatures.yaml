@@ -1,0 +1,7 @@
+- title: "Temperaturüberblick"
+  text: >
+        Draußen sind {{ states.sensor.yweather_temperature.state }}°.
+        Im Wohnzimmer sind {{ states.sensor.fibaro_system_fgms001_motion_sensor_temperature_17_1.state }}°
+        und in der Küche {{ states.sensor.aeotec_zw100_multisensor_6_temperature_22_1.state }}°.
+        {{ states.sensor.fibaro_system_fgk10x_door_opening_sensor_temperature_16_1.state }} im Schlafzimmer.
+        

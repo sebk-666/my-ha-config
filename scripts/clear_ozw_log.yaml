@@ -1,0 +1,3 @@
+  alias: 'Clear OpenZWave Log File'
+  sequence:
+    service: shell_command.clear_ozw_log

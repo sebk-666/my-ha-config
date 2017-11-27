@@ -1,0 +1,3 @@
+name: 'Theme'
+entities:
+  - input_select.theme

@@ -1,0 +1,10 @@
+alias: 'Return kitchen lights to night mode when timer runs out'
+trigger:
+  platform: state
+  entity_id: timer.light_bedroom
+  from: 'active'
+  to: 'idle'
+action:
+  service: light.turn_off
+  data:
+    entity_id: light.schlafzimmerlampe

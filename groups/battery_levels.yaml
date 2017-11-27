@@ -1,0 +1,15 @@
+name: 'Battery Levels'
+entities:
+  - sensor.battery_iphone6s
+  - sensor.battery_ipad
+  - sensor.sebastians_iphone_battery_level
+  - sensor.sebastians_ipad_battery_level
+  - sensor.battery_probook
+  - sensor.bat_livingroom
+  - sensor.bat_bathroom
+  - sensor.bat_kitchen
+  - sensor.bat_office
+  - sensor.bat_bedroom
+  - sensor.bat_fgms
+  - sensor.bat_fgk
+  - sensor.bat_aeotec

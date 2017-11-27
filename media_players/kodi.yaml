@@ -1,0 +1,12 @@
+- platform: kodi
+  host: 192.168.10.18
+  port: 8080
+  name: 'kodi_wetek'
+  username: !secret kodi_user
+  password: !secret kodi_pass
+  turn_off_action: 
+    service: media_player.kodi_call_method
+    data_template:
+      entity_id: '{{ entity_id }}'
+      method: System.Shutdown
+  enable_websocket: false

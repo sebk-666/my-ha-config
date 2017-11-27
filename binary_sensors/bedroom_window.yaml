@@ -1,0 +1,10 @@
+platform: template
+sensors:
+  bedroom_cold_outside:
+    value_template: '{{ states.sensor.bedroom_window.state == "Open" 
+                      and ( 7 <= now().strftime("%H") | int < 22 )
+                      and (( states.sensor.fibaro_fgk_bedroom_temperature.state | int ) 
+                        >= ( states.sensor.yweather_temperature.state | int + 5 )
+                        or ( states.sensor.yweather_temperature.state == "unknown" )
+                        or ( states.sensor.yweather_temperature.state | int <= 14 )) }}'
+

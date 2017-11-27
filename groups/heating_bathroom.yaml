@@ -1,0 +1,7 @@
+name: 'Bad'
+entities:
+  - input_number.heating_bathroom_morning
+  - input_number.heating_bathroom_day
+  - input_number.heating_bathroom_evening
+  - input_number.heating_bathroom_night
+view: no

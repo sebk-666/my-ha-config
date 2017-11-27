@@ -1,0 +1,6 @@
+name: 'Wohnzimmer: Media'
+entities:
+  - media_player.kodi_wetek
+  - media_player.denon_avr
+  - media_player.volumio
+view: no

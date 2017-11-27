@@ -1,0 +1,29 @@
+# this simply checks if the house mode is set to 'Auto'
+# at the times when automatic mode switching would occur
+alias: 'Notify if house mode is not set to auto'
+hide_entity: 'True'
+trigger:
+  - platform: time
+    hours: 08
+    minutes: 05
+    seconds: 00
+  - platform: time
+    hours: 16
+    minutes: 05
+    seconds: 00
+  - platform: time
+    hours: 21
+    minutes: 05
+    seconds: 00
+  - platform: time
+    hours: 00
+    minutes: 00
+    seconds: 00
+condition:
+  condition: template
+  value_template: "{% if not is_state('input_select.housemode', 'auto') %}true{% endif %}"
+action:
+  service: notify.ios_iphone6s
+  data:
+    message: 'House Mode is still set to {{ states.input_select.housemode.state }}.'
+    title: 'Warning'

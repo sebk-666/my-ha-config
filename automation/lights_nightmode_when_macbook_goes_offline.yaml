@@ -1,0 +1,20 @@
+alias: 'Switch On Night Mode When MacBook Goes Offline'
+trigger:
+  - platform: state
+    entity_id: device_tracker.probook
+    to: 'not_home'
+    from: 'home'
+condition:
+  - condition: and
+    conditions:
+      - condition: sun
+        after: sunset
+        after_offset: '-00:15:00'
+      - condition: state
+        entity_id: light.schreibtischlampe
+        state: 'on'
+action:
+  service: light.hue_activate_scene
+  data:
+    group_name: 'Büro'
+    scene_name: 'Night Mode'

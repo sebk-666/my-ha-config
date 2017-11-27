@@ -1,0 +1,51 @@
+platform: template
+sensors:
+  target_temp_livingroom:
+    value_template: '{% if states.climate.danfoss_livingroom_heating_1 %}
+      {{ states.climate.danfoss_livingroom_heating_1.attributes.temperature }}
+      {% else %}
+      0
+      {% endif %}'
+    friendly_name: 'Thermostat Temperatur Wohnzimmer'
+    unit_of_measurement: '°C'
+    entity_id: climate.danfoss_livingroom_heating_1
+
+  target_temp_bedroom:
+    value_template: '{% if states.climate.danfoss_bedroom_heating_1 %}
+      {{ states.climate.danfoss_bedroom_heating_1.attributes.temperature }}
+      {% else %}
+      0
+      {% endif %}'
+    friendly_name: 'Thermostat Temperatur Schlafzimmer'
+    unit_of_measurement: '°C'
+    entity_id: climate.danfoss_bedroom_heating_1
+
+  target_temp_kitchen:
+    value_template: '{% if states.climate.danfoss_kitchen_heating_1 %}
+      {{ states.climate.danfoss_kitchen_heating_1.attributes.temperature }}
+      {% else %}
+      0
+      {% endif %}'
+    friendly_name: 'Thermostat Temperatur Küche'
+    unit_of_measurement: '°C'
+    entity_id: climate.danfoss_kitchen_heating_1
+    
+  target_temp_office:
+    value_template: '{% if states.climate.danfoss_office_heating_1 %}
+      {{ states.climate.danfoss_office_heating_1.attributes.temperature }}
+      {% else %}
+      0
+      {% endif %}'
+    friendly_name: 'Thermostat Temperatur Arbeitszimmer'
+    unit_of_measurement: '°C'
+    entity_id: climate.danfoss_office_heating_1
+
+  target_temp_bathroom:
+    value_template: '{% if states.climate.danfoss_bathroom_heating_1 %}
+      {{ states.climate.danfoss_bathroom_heating_1.attributes.temperature }}
+      {% else %}
+      0
+      {% endif %}'
+    friendly_name: 'Thermostat Temperatur Bad'
+    unit_of_measurement: '°C'
+    entity_id: climate.danfoss_bathroom_heating_1

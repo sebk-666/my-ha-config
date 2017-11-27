@@ -1,0 +1,5 @@
+  alias: 'Telegram Bot Test'
+  sequence:
+    service: notify.telegram
+    data:
+      message: 'testing'

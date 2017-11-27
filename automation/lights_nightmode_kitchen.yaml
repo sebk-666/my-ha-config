@@ -1,0 +1,27 @@
+alias: 'Kitchen Night Mode'
+trigger:
+    platform: sun
+    event: sunset
+    offset: '+00:30:00'
+condition: 
+  - condition: and 
+    conditions: 
+      - condition: state
+        entity_id: light.kuche
+        state: 'off'
+      - condition: or
+        conditions:
+          - condition: state
+            entity_id: light.stehlampe
+            state: 'on'
+          - condition: state
+            entity_id: light.lightstrip
+            state: 'on'
+          - condition: state
+            entity_id: light.tischlampe
+            state: 'on'
+action:
+  service: light.hue_activate_scene
+  data:
+    group_name: 'Küche'
+    scene_name: 'Night Mode'

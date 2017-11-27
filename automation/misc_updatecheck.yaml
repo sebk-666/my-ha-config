@@ -1,0 +1,9 @@
+alias: Update notifications
+trigger:
+  - platform: state
+    entity_id: updater.updater
+action:
+  service: notify.ios_iphone6s
+  data:
+    message: 'There''s a new Home Assistant release available.'
+    title: 'Update available'

@@ -1,0 +1,17 @@
+alias: 'Kitchen lights to full on when motion detected'
+trigger:
+  - platform: state
+    entity_id: binary_sensor.aeotec_motion
+    to: 'on'
+condition:
+  - condition: template
+    value_template: '{{ states.light.kuche_spot.attributes.brightness < 25 }}'
+action:
+  - service: timer.start
+    entity_id: timer.light_kitchen
+  - service: light.turn_on
+    data:
+      entity_id: light.kuche
+      transition: 1
+      brightness: 250
+      color_temp: 300
